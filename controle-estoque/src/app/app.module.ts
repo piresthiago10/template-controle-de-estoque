@@ -16,6 +16,8 @@ import { UserDetailsComponent } from './componentes/user-details/user-details.co
 import { LoginComponent } from './componentes/login/login.component';
 import { NotFoundComponent } from './componentes/not-found/not-found.component';
 import { EditProductComponent } from './componentes/edit-product/edit-product.component';
+import { LogoutComponent } from './componentes/logout/logout.component';
+import { UsersComponent } from './componentes/users/users.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { EditProductComponent } from './componentes/edit-product/edit-product.co
     UserDetailsComponent,
     LoginComponent,
     NotFoundComponent,
-    EditProductComponent
+    EditProductComponent,
+    LogoutComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
