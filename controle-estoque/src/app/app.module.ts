@@ -15,6 +15,7 @@ import { ChangePasswordComponent } from './componentes/change-password/change-pa
 import { UserDetailsComponent } from './componentes/user-details/user-details.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { NotFoundComponent } from './componentes/not-found/not-found.component';
+import { EditProductComponent } from './componentes/edit-product/edit-product.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { NotFoundComponent } from './componentes/not-found/not-found.component';
     ChangePasswordComponent,
     UserDetailsComponent,
     LoginComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    EditProductComponent
   ],
   imports: [
     BrowserModule,
