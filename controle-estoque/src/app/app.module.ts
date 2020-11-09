@@ -18,6 +18,7 @@ import { NotFoundComponent } from './componentes/not-found/not-found.component';
 import { EditProductComponent } from './componentes/edit-product/edit-product.component';
 import { LogoutComponent } from './componentes/logout/logout.component';
 import { UsersComponent } from './componentes/users/users.component';
+import { FooterComponent } from './componentes/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { UsersComponent } from './componentes/users/users.component';
     NotFoundComponent,
     EditProductComponent,
     LogoutComponent,
-    UsersComponent
+    UsersComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
