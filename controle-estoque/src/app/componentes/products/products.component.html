@@ -12,7 +12,7 @@
             <tr>
                 <th scope="col" colspan="1">Id</th>
                 <th scope="col" colspan="2">Nome</th>
-                <th scope="col" colspan="3">Descrição</th>
+                <th scope="col" colspan="4">Descrição</th>
                 <th scope="col" colspan="1">Categoria</th>
                 <th scope="col" colspan="1">Quantidade</th>
                 <th scope="col" colspan="1">Opções</th>
@@ -22,15 +22,19 @@
             <tr *ngFor="let product of products">
                 <th scope="row">{{product.id}}</th>
                 <td colspan="2">{{product.nome}}</td>
-                <td colspan="3">{{product.descricao}}</td>
-                <td colspan="1">{{product.categoria}}</td>
+                <td colspan="4">{{product.descricao}}</td>
+                <td colspan="1">{{product.categoria.nome_categoria}}</td>
                 <td colspan="1">{{product.quantidade_estoque}}</td>
+                
                 <td colspan="1">
-                    
-                    <button type="button" class="btn btn-link"><a href="" class="justify-content-end"><i
+                    <button type="button" class="btn btn-link"><a routerLink="entrada/{{product.id}}" class="justify-content-end"><i
                                 class="fa fa-eye"> </i></a></button>
                     <button type="button" class="btn btn-link"><a href="" class="justify-content-end"><i
                                 class="fa fa-pencil"> </i></a> </button>
+                    <button type="button" class="btn btn-link"><a href="" class="justify-content-end"><i
+                                class="fa fa-plus"> </i></a></button>
+                    <button type="button" class="btn btn-link"><a href="" class="justify-content-end"><i
+                                class="fa fa-minus"> </i></a></button>
                     <button type="button" class="btn btn-link"><a href="" class="justify-content-end"><i
                                 class="fa fa-trash"> </i></a></button>
                 </td>
@@ -43,3 +47,7 @@
         <h5>Não há produtos cadastrados no sistema</h5>
     </ng-template>
 </div>
+<div class="row">
+
+</div>
+

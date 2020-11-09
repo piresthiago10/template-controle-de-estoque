@@ -30,6 +30,70 @@ export class ProductService {
       );
   }
 
+  /** GET hero by id. Return `undefined` when id not found */
+  getHeroNo404<Data>(id: number): Observable<Product> {
+    const url = `${this.productsUrl}/?id=${id}`;
+    return this.http.get<Product[]>(url)
+      .pipe(
+        map(products => products[0]), // returns a {0|1} element array
+        tap(h => {
+          const outcome = h ? `fetched` : `did not find`;
+          this.log(`${outcome} product id=${id}`);
+        }),
+        catchError(this.handleError<Product>(`getProduct id=${id}`))
+      );
+  }
+
+  /** GET hero by id. Will 404 if id not found */
+  getHero(id: number): Observable<Product> {
+    const url = `${this.productsUrl}/${id}`;
+    return this.http.get<Product>(url).pipe(
+      tap(_ => this.log(`fetched product id=${id}`)),
+      catchError(this.handleError<Product>(`getProduct id=${id}`))
+    );
+  }
+
+  /* GET heroes whose name contains search term */
+  searchProducts(term: string): Observable<Product[]> {
+    if (!term.trim()) {
+      // if not search term, return empty hero array.
+      return of([]);
+    }
+    return this.http.get<Product[]>(`${this.productsUrl}/?nome=${term}`).pipe(
+      tap(x => x.length ?
+        this.log(`found heroes matching "${term}"`) :
+        this.log(`no heroes matching "${term}"`)),
+      catchError(this.handleError<Product[]>('searchHeroes', []))
+    );
+  }
+
+  /** POST: add a new hero to the server */
+  addProduct(product: Product): Observable<Product> {
+    return this.http.post<Product>(this.productsUrl, product, this.httpOptions).pipe(
+      tap((newProduct: Product) => this.log(`added hero w/ id=${newProduct.id}`)),
+      catchError(this.handleError<Product>('addProduct'))
+    );
+  }
+
+  /** DELETE: delete the hero from the server */
+  deleteProduct(product: Product | number): Observable<Product> {
+    const id = typeof product === 'number' ? product : product.id;
+    const url = `${this.productsUrl}/${id}`;
+
+    return this.http.delete<Product>(url, this.httpOptions).pipe(
+      tap(_ => this.log(`deleted hero id=${id}`)),
+      catchError(this.handleError<Product>('deleteProduct'))
+    );
+  }
+
+  /** PUT: update the hero on the server */
+  updateProduct(product: Product): Observable<any> {
+    return this.http.put(this.productsUrl, product, this.httpOptions).pipe(
+      tap(_ => this.log(`updated product id=${product.id}`)),
+      catchError(this.handleError<any>('updateProduct'))
+    );
+  }
+
   /**
    * Handle Http operation that failed.
    * Let the app continue.
@@ -52,6 +116,6 @@ export class ProductService {
 
   /** Log a HeroService message with the MessageService */
   private log(message: string) {
-    this.messageService.add(`HeroService: ${message}`);
+    this.messageService.add(`ProductService: ${message}`);
   }
 }

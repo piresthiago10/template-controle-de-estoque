@@ -17,8 +17,8 @@ import { NotFoundComponent } from './componentes/not-found/not-found.component';
 const routes: Routes = [
   {path: '', component: DashboardComponent},
   {path: 'produtos', component: ProductsComponent},
-  {path: 'produto/cadastro', component: AddProductComponent},
-  {path: 'produto/entrada/:id', component: InsertProductComponent},
+  {path: 'produtos/cadastro', component: AddProductComponent},
+  {path: 'produtos/entrada/:id', component: InsertProductComponent},
   {path: 'produto/saida/:id', component: RemoveProductComponent},
   {path: 'usuarios', component: UsersComponent},
   {path: 'usuario/cadastro', component: AddUserComponent},
