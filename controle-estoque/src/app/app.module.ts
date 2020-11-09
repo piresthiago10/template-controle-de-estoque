@@ -19,6 +19,8 @@ import { EditProductComponent } from './componentes/edit-product/edit-product.co
 import { LogoutComponent } from './componentes/logout/logout.component';
 import { UsersComponent } from './componentes/users/users.component';
 import { FooterComponent } from './componentes/footer/footer.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { FooterComponent } from './componentes/footer/footer.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
