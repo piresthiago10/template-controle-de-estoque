@@ -3,7 +3,7 @@
         <h2><i class="fa fa-archive"></i> Estoque</h2>
     </div>
     <div class="col-md-2">
-        <a href="" class="justify-content-end"><i class="fa fa-plus"></i> Novo Item</a>
+        <a routerLink="cadastro" class="justify-content-end"><i class="fa fa-plus"></i> Novo Item</a>
     </div>
 </div>
 <div class="row">
@@ -23,7 +23,7 @@
                 <th scope="row">{{product.id}}</th>
                 <td colspan="2">{{product.nome}}</td>
                 <td colspan="4">{{product.descricao}}</td>
-                <td colspan="1">{{product.categoria.nome_categoria}}</td>
+                <td colspan="1">{{product.categoria}}</td>
                 <td colspan="1">{{product.quantidade_estoque}}</td>
                 
                 <td colspan="1">
