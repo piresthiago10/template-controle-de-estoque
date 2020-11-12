@@ -3,7 +3,6 @@ import { from } from 'rxjs';
 
 import { Product } from '../../models/product'
 import { ProductService } from '../../services/product.service'
-import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-products',
@@ -23,24 +22,6 @@ export class ProductsComponent implements OnInit {
 
   getProducts(): void {
     this.productService.getProducts().subscribe(products => this.products = products);
-  }
-
-  addProduct(form: NgForm) {
-    if (this.product.id !== undefined) {
-      this.productService.updateProduct(this.product).subscribe(() => {
-        this.cleanForm(form);
-      });
-    } else {
-      this.productService.addProduct(this.product).subscribe(() => {
-        this.cleanForm(form);
-      });
-    }
-  }
-
-  cleanForm(form: NgForm) {
-    this.getProducts();
-    form.resetForm();
-    this.product = {} as Product;
   }
 
 }
